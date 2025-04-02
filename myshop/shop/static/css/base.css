@@ -1,0 +1,133 @@
+@import url(//fonts.googleapis.com/css?family=Ubuntu);
+
+body {
+    margin:0;
+    padding:0;
+    font-family:helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5 , h6 {
+    font-family: 'Ubuntu', sans-serif; font-weight:normal;
+}
+
+a {
+    text-decoration:none;
+    color:#4CAF50;
+}
+
+a:hover {
+    color:#66bb6a;
+}
+
+a.button, input[type="submit"] {
+    color:#fff;
+    background:#4CAF50;
+    border-radius:4px;
+    padding:10px 20px;
+    font-size:14px;
+    border:0;
+}
+
+a.button.light {
+    color:#666;
+    background:#ededed;
+}
+
+#header {
+    padding:10px 100px;
+    font-size:18px;
+    overflow:auto;
+}
+
+#header .logo {
+    font-family: 'Ubuntu', sans-serif;
+    float:left;
+    color:#333;
+    font-size:22px;
+    margin-right:10%;
+}
+
+#header .logo img {
+    content: url('parabola_logo.png');
+    height: 50px; 
+}
+
+#subheader {
+    background:#ececec;
+    color:#444;
+    padding:15px 100px;
+    overflow:auto;
+}
+
+#subheader .cart {
+    float:right;
+    padding-top:4px;
+}
+
+#content {
+    padding:0 100px;
+    overflow:hidden;
+}
+
+thead th, tbody tr.total {
+    background:#4CAF50;
+    color:#fff;
+    font-weight:bold;
+}
+
+#sidebar ul li.selected {
+    background:#4CAF50; 
+    border-radius:4px;
+}
+
+#sidebar ul li.selected a {
+    color:#fff;
+}
+
+.order-info {
+    float:right;
+    width:300px;
+    background:#efefef;
+    padding:10px 20px;
+    color:#333;
+    border-bottom:4px solid #4CAF50; 
+}
+
+.order-info h3 {
+    color:#4CAF50;
+}
+
+.cart-item .price {
+    font-weight: bold;
+    color: #4CAF50;
+    font-size: 1.1em;
+    margin: 5px 0;
+}
+
+.cart-item input[type="submit"] {
+    background: #4CAF50; 
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.cart-item input[type="submit"]:hover {
+    background: #66bb6a; 
+}
+
+.cart .actions a.button {
+    padding: 10px 20px;
+    background: #4CAF50; 
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.cart .actions a.button:hover {
+    background: #66bb6a; 
+    color: #fff;
+}
