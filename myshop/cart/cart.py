@@ -12,7 +12,7 @@ class Cart:
         cart = self.session.get(settings.CART_SESSION_ID)
         if not cart:
             # save an empty cart in the session
-            cart = self.session[settings.CART_SESSION_ID] = {}
+            cart = self.session[settings.CART_SESSION_ID] = {}  # se creo un carrito vacío en la sesión
         self.cart = cart
 
     def __iter__(self):

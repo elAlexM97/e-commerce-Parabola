@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+# se definen las rutas de la aplicación 'shop' para acceder a la lista y detalles de productos
 app_name = 'shop'
 urlpatterns = [
      path('mapa/', views.mapa, name='mapa'),  

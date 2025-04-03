@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'shop.apps.ShopConfig',
+    'shop.apps.ShopConfig',    # Se agrego la aplicación 'shop' a INSTALLED_APPS para que django la reconozca y pueda utilizar sus modelos y vistas
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
 ]
@@ -119,10 +119,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'static/'   # Configuración de archivos estáticos (CSS, JS, imágenes)
+
 
 #borrar si sale mal
-STATICFILES_DIRS = [
+STATICFILES_DIRS = [   # Ubicación de archivos estáticos
     BASE_DIR / "static",
 ]
 
@@ -131,9 +132,9 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+# Configuración para archivos de medios (imágenes subidas por el usuario)
+MEDIA_URL = 'media/'   # URL para acceder a los archivos de medios
+MEDIA_ROOT = BASE_DIR / 'media'   # Carpeta donde se guardan las imágenes
 
 
 CART_SESSION_ID = 'cart'
