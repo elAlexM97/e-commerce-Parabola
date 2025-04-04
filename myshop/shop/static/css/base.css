@@ -131,3 +131,28 @@ thead th, tbody tr.total {
     background: #66bb6a; 
     color: #fff;
 }
+.banner-img {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.product-img {
+    max-width: 100%;    /* La imagen no excederá el 100% del contenedor */
+    height: auto;       /* La altura se ajusta automáticamente */
+    display: block;     /* Asegura que la imagen se alinee correctamente */
+    margin: 10px auto;  /* Centra la imagen y agrega margen */
+    border-radius: 8px; /* Esquinas redondeadas para una mejor estética */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra para dar un toque más suave */
+    object-fit: contain; /* Asegura que la imagen se recorte o ajuste correctamente */
+}
+
+/* En pantallas pequeñas */
+@media (max-width: 768px) {
+    .product-img {
+        width: 80%;  /* Asegura que las imágenes no sean tan grandes en dispositivos pequeños */
+    }
+}

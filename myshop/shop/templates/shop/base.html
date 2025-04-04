@@ -4,13 +4,18 @@
   <head>
     <meta charset="utf-8" />
     <title>{% block title %}SHOP{% endblock %}</title>
+
+    <!-- CSS global -->
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link href="{% static 'css/map.css' %}" rel="stylesheet">
+    <link href="{% static 'css/dark.css' %}" rel="stylesheet">
+
+    <!-- Puedes agregar otras hojas según la vista -->
   </head>
   <body>
     <div id="header">
       <a href="/" class="logo">
         SHOP
-
         <img src="{% static 'parabola_logo.png' %}" alt="Logo de Parabola"> 
       </a>
     </div>
@@ -29,9 +34,21 @@
         {% endwith %}
       </div>
     </div>
+
     <div id="content">
       {% block content %}
       {% endblock %}
+
+      <button class="location-btn" onclick="verUbicacion()">Ver ubicación de la tienda</button>
     </div>
+
+    <script>
+      function verUbicacion() {
+        const lat = 28.642433;
+        const lon = -106.145414;
+        const url = `https://www.google.com/maps?q=${lat},${lon}`;
+        window.open(url, '_blank');
+      }
+    </script>
   </body>
 </html>

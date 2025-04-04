@@ -1,44 +1,101 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapas</title>
-</head>
-<body>
-   
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" name="lat" placeholder="Latitud"  id="lat" value = "{{lat}}">
-        <input type="text" name="lon" placeholder="Longitud" id="lon" value="{{lon}}">
-        <input type="submit" value="Enviar">
-    </form>
- 
-    <div id="map"></div>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %}SHOP{% endblock %}</title>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+
     <style>
-        #map {
-            /*height: 500px;
-            width: 100%;*/
-            height: 40vh;
-            width: 50vh;
-        }
+      body {
+        background-color: #121212;
+        color: #e0e0e0;
+        font-family: Arial, sans-serif;
+      }
+
+      a {
+        color: #4caf50; /* Verde */
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #81c784;
+      }
+
+      #header, #subheader {
+        padding: 15px;
+        background-color: #1e1e1e;
+        border-bottom: 1px solid #333;
+      }
+
+      .logo img {
+        height: 30px;
+        vertical-align: middle;
+        margin-left: 10px;
+      }
+
+      .cart {
+        float: right;
+      }
+
+      #content {
+        padding: 20px;
+      }
+
+      .location-btn {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 15px;
+      }
+
+      .location-btn:hover {
+        background-color: #66bb6a;
+      }
+
     </style>
+  </head>
+  <body>
+    <div id="header">
+      <a href="/" class="logo">
+        SHOP
+        <img src="{% static 'parabola_logo.png' %}" alt="Logo de Parabola"> 
+      </a>
+    </div>
+    <div id="subheader">
+      <div class="cart">
+        {% with total_items=cart|length %}
+          {% if total_items > 0 %}
+            Tu carrito:
+            <a href="{% url 'cart:cart_detail' %}">
+              {{ total_items }} artículo{{ total_items|pluralize }},
+              ${{ cart.get_total_price }}
+            </a>
+          {% elif not order %}
+            Tu carrito está vacío
+          {% endif %}
+        {% endwith %}
+      </div>
+    </div>
+    <div id="content">
+      {% block content %}
+      {% endblock %}
+
+      <!-- Botón para mostrar ubicación -->
+      <button class="location-btn" onclick="verUbicacion()">Ver ubicación de la tienda</button>
+    </div>
+
     <script>
-        function iniciarMap() {
-        let latitud = 28.642433
-        let longitud = -106.145414
-        var coord = {lat:latitud ,lng: longitud};
-        var map = new google.maps.Map(document.getElementById('map'),{
-        zoom: 18,
-        center: coord
-        });
-        var marker = new google.maps.Marker({
-        position: coord,
-        map: map
-        });
-    }
+      function verUbicacion() {
+        // Coordenadas de la tienda
+        const lat = 28.642433;
+        const lon = -106.145414;
+        const url = `https://www.google.com/maps?q=${lat},${lon}`;
+        window.open(url, '_blank');
+      }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
-   
-</body>
+  </body>
 </html>
