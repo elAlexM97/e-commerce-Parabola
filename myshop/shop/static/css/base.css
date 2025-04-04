@@ -141,18 +141,20 @@ thead th, tbody tr.total {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 .product-img {
-    max-width: 100%;    /* La imagen no excederá el 100% del contenedor */
-    height: auto;       /* La altura se ajusta automáticamente */
-    display: block;     /* Asegura que la imagen se alinee correctamente */
-    margin: 10px auto;  /* Centra la imagen y agrega margen */
-    border-radius: 8px; /* Esquinas redondeadas para una mejor estética */
+    max-width: 300px;    /* Limita el ancho máximo de las imágenes a 300px */
+    width: 100%;         /* Asegura que la imagen se ajuste al ancho del contenedor, pero sin exceder el máximo */
+    height: auto;        /* Mantiene la proporción de la imagen */
+    display: block;      /* Asegura que la imagen esté alineada correctamente */
+    margin: 10px auto;   /* Centra la imagen y agrega margen */
+    border-radius: 8px;  /* Esquinas redondeadas para una mejor estética */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra para dar un toque más suave */
-    object-fit: contain; /* Asegura que la imagen se recorte o ajuste correctamente */
+    object-fit: contain; /* Ajusta la imagen sin recortarla */
 }
 
 /* En pantallas pequeñas */
 @media (max-width: 768px) {
     .product-img {
-        width: 80%;  /* Asegura que las imágenes no sean tan grandes en dispositivos pequeños */
+        max-width: 80%;  /* Asegura que las imágenes no sean tan grandes en dispositivos pequeños */
     }
 }
+
